@@ -2,51 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-menu {
-  border-bottom: 3px solid #000;
-  border-top: 1px solid #000;
-  position: relative;
-  background-color: #fff;
-  height: 54px!important;
-  margin: 0px 60px;
-  ul {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    list-style-image: none;
-  }
-  li {
-    display: inline-block;
-    font-size: 18px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-  li:after {
-    color: #eee;
-    content: "/";
-    font: normal 24px/24px Helvetica, Arial;
-    display: block;
-    float: left;
-    width: 6px;
-    margin-top: 14px;
-  }
-  a {
-    height: 50px;
-    line-height: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: block;
-    float: left;
-    color: #000;
-    position: relative;
-    font-family: Oswald;
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: none;
-  }
-}
-
 .doses {
   ul {
     list-style: none;
