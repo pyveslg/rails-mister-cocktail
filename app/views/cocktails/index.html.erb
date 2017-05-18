@@ -23,6 +23,7 @@
       <ul class="list-inline product-controls hidden-sm hidden-xs">
         <li><%= link_to cocktail_path(cocktail.id) do %><i class="fa fa-eye"></i><% end %></li>
         <li><%= link_to new_cocktail_dose_path(cocktail.id) do %><i class="fa fa-plus"></i><% end %></li>
+        <li><%= link_to cocktail_path(cocktail.id), method: :delete do %><i class="fa fa-trash-o"></i><% end %></li>
       </ul>
     </div>
   <% end %>
