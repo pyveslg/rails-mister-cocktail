@@ -1,0 +1,10 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.thecocktaildb.com/images/ingredients/ice.png');">
+  <div class="banner-content">
+    Choose an ingredient for <%= @cocktail.name %>
+    <%= simple_form_for([@cocktail, @dose]) do |f| %>
+      <%= f.input :ingredient_id, collection: Ingredient.all %>
+      <%= f.input :description %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

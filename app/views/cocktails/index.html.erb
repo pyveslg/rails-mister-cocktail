@@ -1,0 +1,46 @@
+<div class="padded">
+  <div class="wrapper main-menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <ul >
+            <li><%= link_to "Welcome", root_path %></li>
+            <li><%= link_to "Add a Cocktail", new_cocktail_path  %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://imbibemagazine.com/wp-content/uploads/2013/07/1050x700xdowntown-daquiri-horizontal-crtsy-kindred-1050x700.jpg.pagespeed.ic.TsjtWBKpEJ.jpg');">
+  <div class="banner-content">
+    <h1>Great cocktails recipes</h1>
+    <p>So gooooood cocktails</p>
+    <%= link_to "Add a Cocktail now!", new_cocktail_path, class: "btn btn-success btn-lg"  %>
+  </div>
+</div>
+
+<h2 class="text-center padded">Have a look on our awesome cocktails !</h2>
+<% @cocktails.each do |cocktail| %>
+  <div class="product">
+    <%= image_tag cocktail.img, style:"width: 150px; padding-right: 20px; border-radius: 50%;" %>
+    <div class='product-body'>
+      <h3><%= cocktail.name %></h3>
+      <p>
+      <% cocktail.doses.each do |dose| %>
+        <%= dose.ingredient.name %> <%= link_to cocktail_dose_path(cocktail.id, dose.id), method: :delete do %><i class="fa fa-trash-o"></i><% end %>|
+      <% end %>
+      </p>
+
+    </div>
+    <ul class="list-inline product-controls hidden-sm hidden-xs">
+      <li><%= link_to cocktail_path(cocktail.id) do %><i class="fa fa-eye"></i><% end %></li>
+      <li><%= link_to new_cocktail_dose_path(cocktail.id) do %><i class="fa fa-plus"></i><% end %></li>
+    </ul>
+  </div>
+<% end %>
+
+
+
