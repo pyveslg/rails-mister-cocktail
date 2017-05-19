@@ -27,6 +27,15 @@
     width: 6px;
     margin-top: 14px;
   }
+  li:last-child:after {
+    color: #eee;
+    content: "";
+    font: normal 24px/24px Helvetica, Arial;
+    display: block;
+    float: left;
+    width: 6px;
+    margin-top: 14px;
+  }
   a {
     height: 50px;
     line-height: 50px;
@@ -34,11 +43,18 @@
     padding-right: 15px;
     display: block;
     float: left;
-    color: #000;
+    color: black;
     position: relative;
     font-family: Oswald;
     font-weight: normal;
     font-style: normal;
     text-decoration: none;
   }
+}
+
+.wrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
 }

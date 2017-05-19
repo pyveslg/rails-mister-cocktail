@@ -6,27 +6,44 @@
   </div>
 </div>
 
-<h2 class="text-center padded">Have a look on our awesome cocktails !</h2>
-<div id="cocktails">
-  <% @cocktails.each do |cocktail| %>
-    <div class="product">
-      <%= image_tag cocktail.img, style:"width: 150px; padding-right: 20px; border-radius: 50%;" %>
-      <div class='product-body'>
-        <h3><%= cocktail.name %></h3>
-        <p>
-        <% cocktail.doses.each do |dose| %>
-          <%= dose.ingredient.name %> <%= link_to cocktail_dose_path(cocktail.id, dose.id), method: :delete do %><i class="fa fa-trash-o"></i><% end %>|
-        <% end %>
-        </p>
+<h2 class="text-center header-content">Have a look on our <span style="background-color: #536E7C; color: white;">awesome</span> cocktails !</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="cocktails">
+        <% @cocktails.each do |cocktail| %>
+          <div class="product">
+            <%= image_tag cocktail.img, style:"width: 150px; padding-right: 20px; border-radius: 50%;" %>
+            <div class='product-body'>
+              <h3><%= cocktail.name %></h3>
+              <p>
+              <% cocktail.doses.each do |dose| %>
+                <%= dose.ingredient.name %> <%= link_to cocktail_dose_path(cocktail.id, dose.id), method: :delete do %>
+                <i class="fa fa-trash-o"></i>
+                <% end %>
 
+                |
+              <% end %>
+              </p>
+              <p>
+              <% cocktail.doses.each do |dose| %>
+                <% if dose.ingredient.photo? %>
+                  <%= cl_image_tag dose.ingredient.photo.path, width: 50, height: 50, crop: :fill, radius: :max %>
+                <% end %>
+              <% end %>
+              </p>
+
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><%= link_to cocktail_path(cocktail.id) do %><i class="fa fa-eye"></i><% end %></li>
+              <li><%= link_to new_cocktail_dose_path(cocktail.id) do %><i class="fa fa-plus"></i><% end %></li>
+              <li><%= link_to cocktail_path(cocktail.id), method: :delete do %><i class="fa fa-trash-o"></i><% end %></li>
+            </ul>
+          </div>
+        <% end %>
       </div>
-      <ul class="list-inline product-controls hidden-sm hidden-xs">
-        <li><%= link_to cocktail_path(cocktail.id) do %><i class="fa fa-eye"></i><% end %></li>
-        <li><%= link_to new_cocktail_dose_path(cocktail.id) do %><i class="fa fa-plus"></i><% end %></li>
-        <li><%= link_to cocktail_path(cocktail.id), method: :delete do %><i class="fa fa-trash-o"></i><% end %></li>
-      </ul>
     </div>
-  <% end %>
+  </div>
 </div>
 
 

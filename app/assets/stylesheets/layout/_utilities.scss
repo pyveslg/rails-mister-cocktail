@@ -7,7 +7,6 @@
 // Paddings
 .padded {
   padding-top: 3em;
-  padding-bottom: 3em;
 }
 
 // Backgrounds
@@ -22,4 +21,8 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+#main-content {
+  padding-top: 54px;
 }

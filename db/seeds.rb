@@ -17,8 +17,11 @@ url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 cocktail_serialized = open(url).read
 cocktail = JSON.parse(cocktail_serialized)
 
+
 cocktail["drinks"].each do |ingredient|
-  Ingredient.create(name: ingredient["strIngredient1"])
+  url = "http://www.thecocktaildb.com/images/ingredients/#{ingredient["strIngredient1"]}.png"
+  new_ingredient = Ingredient.create(name: ingredient["strIngredient1"])
+  new_ingredient.photo_url = url
 end
 
 puts 'Finished!'

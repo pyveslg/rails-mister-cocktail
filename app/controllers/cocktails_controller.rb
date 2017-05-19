@@ -16,7 +16,9 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = Cocktail.new(cocktail_params)
     @cocktail.save
-    redirect_to cocktail_path(@cocktail)
+    @dose = Dose.new
+    @dose.cocktail = @cocktail
+    redirect_to new_cocktail_dose_path(@cocktail)
   end
 
   def destroy
